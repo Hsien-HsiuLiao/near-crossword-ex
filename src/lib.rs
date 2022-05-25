@@ -1,15 +1,40 @@
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
-use near_sdk::near_bindgen;
+use near_sdk::{env, near_bindgen};
+
+const PUZZLE_NUMBER: u8 = 1;
 
 #[near_bindgen]
 #[derive(Default, BorshDeserialize, BorshSerialize)]
 pub struct Contract {
     // SETUP CONTRACT STATE
+    crossword_solution: String,
 }
 
 #[near_bindgen]
 impl Contract {
     // ADD CONTRACT METHODS HERE
+    pub fn get_puzzle_number(&self) -> u8 {
+        PUZZLE_NUMBER
+    }
+
+    pub fn set_solution(&mut self, solution: String) {
+        self.crossword_solution = solution;
+    }
+
+    /*  
+    Why does this need to be mutable?
+    Well, logging is ultimately captured inside blocks added to the blockchain. 
+    (More accurately, transactions are contained in chunks and chunks are contained in blocks. 
+    More info in the Nomicon spec.) So while it is not changing the data in the fields of the struct, 
+    it does cost some amount of gas to log, requiring a signed transaction by an account that pays for this gas.
+    */
+    pub fn guess_solution(&mut self, solution: String) {
+        if solution == self.crossword_solution {
+            env::log_str("You guessed right")
+        } else {
+            env::log_str("Try again")
+        }
+    }
 }
 
 /*
