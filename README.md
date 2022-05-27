@@ -12,4 +12,4 @@ Run the build script and expect to see the compiled Wasm file copied to the res 
 `npm install js-sha256`
 `npm install near-api-js`
 
-env CONTRACT_NAME=crossword.hliao.testnet npm run start
+env CONTRACT_NAME=nearcrossword.hliao.testnet npm run start
