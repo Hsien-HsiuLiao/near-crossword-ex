@@ -6,7 +6,7 @@ export async function viewMethodOnContract(nearConfig, method) {
     return JSON.parse(rawResult.result.map((x) => String.fromCharCode(x)).join(''));
   }
 
-  export function parseSolutionSeedPhrase(data, gridData) {
+ export function parseSolutionSeedPhrase(data, gridData) {
     // JavaScript determining what the highest clue number is
     // Example: 10 if there are ten clues, some which have both across and down clues
     let totalClues = Object.keys(data.across).concat(Object.keys(data.down))
@@ -40,9 +40,9 @@ export async function viewMethodOnContract(nearConfig, method) {
   return finalSeedPhrase;
 }
 
-
-  module.exports = {
-    viewMethodOnContract,
-    parseSolutionSeedPhrase
-  };
-  
+/*
+module.exports = {
+  viewMethodOnContract,
+  parseSolutionSeedPhrase
+};
+*/
