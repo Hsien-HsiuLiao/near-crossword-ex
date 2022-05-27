@@ -11,3 +11,5 @@ Run the build script and expect to see the compiled Wasm file copied to the res 
 `npm install react-crossword-near` in front end folder
 `npm install js-sha256`
 `npm install near-api-js`
+
+env CONTRACT_NAME=crossword.hliao.testnet npm run start

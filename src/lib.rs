@@ -27,6 +27,9 @@ impl Contract {
         self.crossword_solution = solution;
     }
 
+    pub fn get_solution(&self) -> String {
+        self.crossword_solution.clone()
+    }
     /*  
     Why does this need to be mutable?
     Well, logging is ultimately captured inside blocks added to the blockchain. 

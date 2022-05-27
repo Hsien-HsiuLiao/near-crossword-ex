@@ -1,3 +1,4 @@
+import './App.css';
 import React, { useCallback, useRef, useState } from 'react';
 import Crossword from 'react-crossword-near';
 import { parseSolutionSeedPhrase } from './utils';
@@ -40,12 +41,14 @@ const App = ({ data, solutionHash }) => {
     <div id="page">
       <h1>NEAR Crossword Puzzle</h1>
       <div id="crossword-wrapper">
+        
         <h3>Status: { solutionFound }</h3>
         <Crossword
           data={data}
           ref={crossword}
           onCrosswordComplete={onCrosswordComplete}
         />
+  
       </div>
       <footer>
         <p>Thank you <a href="https://github.com/JaredReisinger/react-crossword" target="_blank" rel="noreferrer">@jaredreisinger/react-crossword</a>!</p>
